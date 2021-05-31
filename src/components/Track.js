@@ -4,7 +4,7 @@ function Track(props) {
     <div className="grid xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-4 mt-8">
       {props.cards.map((item) => (
         <a href="#">
-          <div className="flex justify-between text-sm border-t border-gray-200 border-opacity-60 dark:border-sideBar py-4">
+          <div className="flex justify-between text-sm border-t border-gray-200 border-opacity-20 dark:border-sideBar py-4">
             <div className="flex space-x-2">
               <div className="w-10 h-10">
                 <img src={item.thumbnail} className="rounded-sm" alt="track" />

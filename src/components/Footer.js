@@ -1,70 +1,47 @@
+import { TiSocialInstagram } from "react-icons/ti";
+import { TiSocialFacebook } from "react-icons/ti";
+import { TiSocialTwitter } from "react-icons/ti";
+import { IconContext } from "react-icons";
+import newlogo from "../assets/img/newlogo.png";
+
+
 /* eslint-disable */
+
 function Footer() {
   return (
-    <footer className="px-8 py-4 text-gray-400 text-sm">
-      <div className="mb-6">
-        <p>
-          Copyright © 2021{" "}
-          <a href="https://www.apple.com/uk/" target="_blank" rel="noopener">
-            WEAREMASTERS.IO
-          </a>{" "}
-          All Rights Reserved.
-        </p>
-      </div>
-      <div>
-        <ul className="sm:flex sm:space-x-8 text-gray-500">
-          <li className="py-2">
-            <a
-              href="https://www.apple.com/uk/legal/internet-services/"
-              target="_blank"
-              rel="noopener"
-              data-dt-link-to-exclude=""
-            >
-              Internet Service Terms
+    <footer className="bg-footer text-white px-20">
+      <IconContext.Provider value={{ size: "25px" }}>
+        <div className="flex h-28">
+          <img src={newlogo} className="relative top-10" alt="logo" />
+          <div className="border-l h-44 border-gray-400 border-opacity-40 mt-4 ml-28" />
+          <div className="w-80 mx-6">
+            <p className="text-gray-400 text-sm mt-20">
+              Digital marketplace for crypto collectibles and non-fungible
+              tokens (NFTs). Buy, sell, and discover exclusive digital assets.
+            </p>
+          </div>
+        </div>
+        <div className="-mt-8">
+          <div className="flex flex-row-reverse">
+            <TiSocialInstagram />
+            <TiSocialFacebook />
+            <TiSocialTwitter />
+          </div>
+          <div className="mt-2 text-gray-400 text-sm flex flex-row-reverse">
+            hello@wearemasters.io
+          </div>
+        </div>
+        <div className="mt-16 pt-4 border-b border-gray-400 border-opacity-20" />
+        <div className="text-gray-400 mt-4 flex justify-between">
+          <p className="text-gray-400 text-sm mt-2">
+            Copyright © 2021
+            <a href="https://www.apple.com/uk/" target="_blank" rel="noopener">
+              WEAREMASTERS.IO
             </a>
-          </li>
-          <li className="py-2">
-            <a
-              href="https://support.apple.com/en-gb/HT204881"
-              target="_blank"
-              rel="noopener"
-              data-dt-link-to-exclude=""
-            >
-              Apple Music &amp; Privacy
-            </a>
-          </li>
-          <li className="py-2">
-            <a
-              href="https://www.apple.com/uk/legal/privacy/en-ww/cookies/"
-              target="_blank"
-              rel="noopener"
-              data-dt-link-to-exclude=""
-            >
-              Cookie Warning
-            </a>
-          </li>
-          <li className="py-2">
-            <a
-              href="https://support.apple.com/en-gb/music"
-              target="_blank"
-              rel="noopener"
-              data-dt-link-to-exclude=""
-            >
-              Support
-            </a>
-          </li>
-          <li className="py-2">
-            <a
-              href="https://www.apple.com/feedback/apple-music.html"
-              target="_blank"
-              rel="noopener"
-              data-dt-link-to-exclude=""
-            >
-              Feedback
-            </a>
-          </li>
-        </ul>
-      </div>
+            All Rights Reserved.
+          </p>
+        </div>
+      </IconContext.Provider>
     </footer>
   );
 }

@@ -7,9 +7,11 @@ module.exports = {
     extend: {
       colors: {
         bordyColor: "#1f1f1f",
-        sideBar: "#252526",
+        back: "#202020",
         appRed: "#fa2d48",
         appGray: "#444444",
+        footer: "#232326",
+        up: "#3f9ffd",
       },
       spacing: {
         feature: "480px",

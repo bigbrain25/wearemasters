@@ -7,14 +7,15 @@ import newImg from "../assets/img/new.jpg";
 import fOne from "../assets/img/special/1.gif";
 import fTwo from "../assets/img/special/2.gif";
 import fThree from "../assets/img/special/3.gif";
-// components
 import FeatureCard from "../components/cards/Feature";
 import FeatureCardB from "../components/cards/FeatureB";
 import MusicCard from "../components/cards/Music";
 import RadioCard from "../components/cards/Radio";
 import SpecialCard from "../components/cards/Special";
 import Hero from "../components/Hero";
+import artis from "../assets/img/artis.gif";
 import Track from "../components/Track";
+import { Link } from "react-router-dom";
 
 function Content() {
   const featureList = [
@@ -50,58 +51,47 @@ function Content() {
   const trackList = [
     {
       id: 1,
-      title: "Kaleidoscope Woman by",
+      title: "Kaleidoscope Woman",
       artist: "IPneuma",
+      price: "-2ETH/$3000",
       thumbnail:
         "https://lh3.googleusercontent.com/CPe3saEkiRAMGiOuKIMtGXnent817rjIKGcwBRhSADk5zzFLsFxbHoWwc0qKqGqCFONS0E5SvT0ljbsZBiKLWolVFWP75PtcGCuh=s0",
       link: "#",
     },
     {
       id: 2,
-      title: "Kaleidoscope Woman by",
+      title: "Kaleidoscope Woman",
       artist: "IPneuma",
+      price: "-2ETH/$3000",
       thumbnail:
         "https://lh3.googleusercontent.com/9nTeFgvJAxS5I2es5KkxnjuP7dwbt0wWyR4V34LlaUPOQnBHK-omJbSw3lUeWvRhki7AJocyzYspSneOuXqqQdauxF_4-dyLwwz5=s0",
       link: "#",
     },
     {
       id: 3,
-      title: "Kaleidoscope Woman by",
+      title: "Kaleidoscope Woman",
       artist: "IPneuma",
+      price: "-2ETH/$3000",
       thumbnail:
         "https://lh3.googleusercontent.com/KBPFHbreehLr7iQYTAeAmAoQqM4GwlRJk9O9x9bLpBy1uVqtJEZTTEXkJ2-0bClw1zvFAmEDhXHctKAdW8tp2LwpMSMSROsUlyjS1A=s0",
       link: "#",
     },
     {
       id: 4,
-      title: "Kaleidoscope Woman by",
+      title: "Kaleidoscope Woman",
       artist: "IPneuma",
+      price: "-2ETH/$3000",
       thumbnail:
         "https://lh3.googleusercontent.com/m6rihxymByjWXFJWO3h4lIz2EJcWWxtlmRuH9VgpFbTRjBxltm7oyO7G0vfkeSZArdqsE-VI573oygdpURJtCtwqfAiJlMO-Fvfkjw=s0",
       link: "#",
     },
     {
       id: 5,
-      title: "worship today",
-      artist: "Apple Music gospel",
-      thumbnail: newImg,
-      link: "#",
-    },
-    {
-      id: 6,
-      title: "Blue Woman Series by",
-      artist: "Ayoola",
+      title: "Kaleidoscope Woman",
+      artist: "IPneuma",
+      price: "-2ETH/$3000",
       thumbnail:
-        "https://lh3.googleusercontent.com/SYy6eHKIOJF3y_-0dmyuRxwBAuKV4lt9dg_W2_QlqvGG4bDb67WVszlSY2Znhe7XlbwZg7d7OQ2EP1cqEFBWEXLn85AtRmi7HxzNuA=s0",
-      link: "#",
-    },
-
-    {
-      id: 7,
-      title: "Kissed by the sun by",
-      artist: "Dorgu",
-      thumbnail:
-        "https://lh3.googleusercontent.com/PA-k72Ijyr6EVhOcT1XMSKfR3fLd24JaAQvXG8pTKzVsVBW2iFPv7TMg-6ZaRFZKbFsqgRfyTou44qAE-8J83fN3v8netgtb00bB=s0",
+        "https://lh3.googleusercontent.com/m6rihxymByjWXFJWO3h4lIz2EJcWWxtlmRuH9VgpFbTRjBxltm7oyO7G0vfkeSZArdqsE-VI573oygdpURJtCtwqfAiJlMO-Fvfkjw=s0",
       link: "#",
     },
   ];
@@ -228,8 +218,7 @@ function Content() {
       title: "Decentraland",
       artist: "Apple Music gospel",
       thumbnail: newImg,
-      link:
-        "https://lh3.googleusercontent.com/5KIxEGmnAiL5psnMCSLPlfSxDxfRSk4sTQRSyhPdgnu70nGb2YsuVxTmO2iKEkOZOfq476Bl1hAu6aJIKjs1myY=s64",
+      link: "https://lh3.googleusercontent.com/5KIxEGmnAiL5psnMCSLPlfSxDxfRSk4sTQRSyhPdgnu70nGb2YsuVxTmO2iKEkOZOfq476Bl1hAu6aJIKjs1myY=s64",
     },
     {
       id: 10,
@@ -321,7 +310,7 @@ function Content() {
           className={
             currentSlide === 0
               ? "hidden"
-              : "absolute text-white left-0 bg-gray-700 duration-150 bg-opacity-70 focus:outline-none hover:bg-red-600 rounded-full w-10 h-10 flex items-center justify-center"
+              : "absolute text-white left-0 bg-gray-700 duration-150 bg-opacity-70 focus:outline-none hover:bg-red-600 rounded-full w-6 h-6 flex items-center justify-center"
           }
           onClick={() => previous()}
         >
@@ -336,7 +325,7 @@ function Content() {
           className={
             currentSlide === trackList.length - 5
               ? "hidden"
-              : "absolute text-white right-0 bg-gray-700 duration-150 bg-opacity-70 focus:outline-none hover:bg-red-600 rounded-full w-10 h-10 flex items-center justify-center"
+              : "absolute text-white right-0 bg-gray-700 duration-150 bg-opacity-70 focus:outline-none hover:bg-red-600 rounded-full w-6 h-6 flex items-center justify-center"
           }
           onClick={() => next()}
         >
@@ -427,7 +416,7 @@ function Content() {
     return (
       <div>
         <MusicCard key={card.id} card={card} />{" "}
-        <hr className="my-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+        <hr className="my-4 border-gray-400 border-opacity-10 dark:border-sideBar" />
         <MusicCard key={card.id} card={card} />
       </div>
     );
@@ -454,63 +443,34 @@ function Content() {
           partialVisible={true}
           responsive={heroResponsive}
           itemClass="px-2"
-          className="mt-8 pb-8"
+          className="mt-4 pt-7 pb-8"
         >
           {getHeroes}
         </Carousel>
       </div>
       <div>
-        {/* <h2 className="text-3xl font-bold capitalize text-bordyColor dark:text-gray-100">
-          browse Top Drop
-        </h2> */}
-        <hr className="mt-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+        <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
       </div>
-
       <div className="mt-12 grid lg:grid-cols-3 gap-6 items-end">
         {featuresB}
       </div>
-      <hr className="my-8 border border-gray-200 opacity-60 dark:border-sideBar" />
-      {/* <div>
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
+      <div>
         <div className="flex justify-between items-center">
           <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
             Featured Creations
           </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
-        </div>
-        <Carousel
-          arrows={false}
-          customButtonGroup={<ButtonGroup />}
-          partialVisible={true}
-          responsive={responsive}
-          itemClass="px-2"
-          className="mt-8"
-        >
-          {tracks}
-        </Carousel>
-      </div>
-      <hr className="my-8 border border-gray-200 opacity-60 dark:border-sideBar" /> */}
-      <div>
-        <div className="flex justify-between items-center">
-          <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
-            Featured Creation
-          </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         <Carousel
           arrows={false}
@@ -523,7 +483,7 @@ function Content() {
           {featureCreation}
         </Carousel>
       </div>
-      <hr className="my-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
       <div>
         <br></br>
         <div className="grid md:grid-cols-12 gap-8 text-bordyColor dark:text-gray-100">
@@ -536,56 +496,56 @@ function Content() {
           <div className="xl:col-span-10 md:col-span-9 col-span-12 space-y-8 md:px-0 px-4">
             <div className="grid md:grid-cols-12 gap-8">
               <div className="md:col-span-4 col-span-12 text-center space-y-2">
-                <h3 className="text-lg capitalize font-semibold">discover</h3>
+                <h3 className="text-lg capitalize font-semibold">SIGN UP</h3>
                 <p className="text-sm">
-                  Omnis porro, dolore consectetur, et libero laborum delectus
-                  voluptatum eos illum itaque molestiae. Omnis porro, dolore
-                  consectetur, et libero laborum delectus voluptatum eos illum
-                  itaque molestiae
+                  Create an account , update your profile, add social links,
+                  profile image and bio.
                 </p>
               </div>
               <div className="md:col-span-4 col-span-12 text-center space-y-2">
-                <h3 className="text-lg capitalize font-semibold">discover</h3>
+                <h3 className="text-lg capitalize font-semibold">
+                  ADD YOUR NFTs{" "}
+                </h3>
                 <p className="text-sm">
-                  Omnis porro, dolore consectetur, et libero laborum delectus
-                  voluptatum eos illum itaque molestiae. Omnis porro, dolore
-                  consectetur, et libero laborum delectus voluptatum eos illum
-                  itaque molestiae
+                  Upload your work (image, video, audio, or 3D art), add a title
+                  and description, add social links.
                 </p>
               </div>
               <div className="md:col-span-4 col-span-12 text-center space-y-2">
-                <h3 className="text-lg capitalize font-semibold">discover</h3>
+                <h3 className="text-lg capitalize font-semibold">
+                  LIST THEM FOR SALE
+                </h3>
                 <p className="text-sm">
-                  Omnis porro, dolore consectetur, et libero laborum delectus
-                  voluptatum eos illum itaque molestiae. Omnis porro, dolore
-                  consectetur, et libero laborum delectus voluptatum eos illum
-                  itaque molestiae
+                  Choose between auctions and fixed-price listings, and set
+                  editions for your works, and we help you sell them!
                 </p>
               </div>
             </div>
             <div className="text-center">
-              <button className="py-3 px-10 bg-appRed rounded-full uppercase text-white text-sm font-medium">
+              <button className="py-3 px-10 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 ... rounded uppercase text-white text-sm font-medium">
                 enter marketplace
               </button>
             </div>
           </div>
         </div>
       </div>
-      <hr className="my-8 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
       <div>
         <div className="flex justify-between items-center">
           <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
             MBPR Agency
           </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         <Carousel
           arrows={false}
@@ -598,45 +558,49 @@ function Content() {
           {featureCreation}
         </Carousel>
       </div>
-      <hr className="my-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 pt-4 border-b border-gray-400 border-opacity-20" />
       <div className="mt-12">
         <div className="flex justify-between items-center">
           <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
             Upcoming Hot Drops
           </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         <div className="mt-6 grid lg:grid-cols-3 gap-4 items-end">
           {special}
         </div>
       </div>
-      <hr className="my-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
       <div className="mt-12 grid lg:grid-cols-3 gap-6 items-end">
         {features}
       </div>
-      <hr className="my-8 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
       <div>
         <div className="flex justify-between items-center">
           <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
             featured artists
           </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         <Carousel
           arrows={false}
@@ -649,21 +613,23 @@ function Content() {
           {radioTracks}
         </Carousel>
       </div>
-      <hr className="my-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
       <div>
         <div className="flex justify-between items-center">
           <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
             new week, new goals
           </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         <Carousel
           arrows={false}
@@ -676,40 +642,43 @@ function Content() {
           {tracks}
         </Carousel>
       </div>
-      <hr className="my-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 mb-2 pt-2 border-b border-gray-400 border-opacity-20" />
       <div>
-        <div className="flex justify-between items-center">
+        <div className="flex relative top-4 justify-between items-center">
           <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
-            Collections
+            Collectibles/coming soon
           </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         {gridTracks}
       </div>
-
-      {/* <hr className="my-4 border border-gray-200 opacity-60 dark:border-sideBar" />
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
       <div>
         <div className="flex justify-between items-center">
           <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
-            Top selling artists
+            new week, new goals
           </h2>
-          <a href="#" className="capitalize text-appRed flex items-center">
-            view all
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
-              />
-            </svg>
-          </a>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
         <Carousel
           arrows={false}
@@ -719,17 +688,112 @@ function Content() {
           itemClass="px-2"
           className="mt-8"
         >
-          {radioTracks}
+          {tracks}
         </Carousel>
-      </div> */}
-      {/* <div className="mt-12">
-        <div className="mb-8">
-          <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
-            browse
-          </h2>
+      </div>
+      <div className="mt-6 pt-4 mb-6 border-b border-gray-400 border-opacity-20" />
+      <div className="mb-2">
+        <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100 mb-4">
+          New Set
+        </h2>
+        <div className="flex flex-row-reverse relative bottom-10">
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
         </div>
-        <Explore />
-      </div> */}
+        <div className="flex">
+          <div className="w-full">
+            <img src={artis} className="w-96 h-80 rounded" alt="img" />
+            <div className="flex">
+              <p className="text-xl">Kissed by the sun</p>
+              <span className="text-sm mt-2 ml-28">-2ETH/$3000</span>
+            </div>
+            <p className="text-lg">Dorgu</p>
+          </div>
+          <div className="w-full pt-20 pr-24 relative -left-20">
+            <p className="text-sm">
+              <p className="inline font-black text-lg">
+                {" "}
+                The Deconstruction Of A Nation
+              </p>{" "}
+              - has been televised since Nigeria won it’s independence from the
+              British in 1960. Our living rooms or parlors have become the arena
+              citizens of our nascent nation have sat to watch the
+              deconstruction of the dream our founding fathers had. We’ve seen
+              civil war, coup’s , skirmishes and the dominance of our military.
+              The deconstruction of a nation is mixed media reminding us how far
+              we’ve come as a people.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
+      <div>
+        <div className="flex justify-between items-center">
+          <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
+            new week, new goals
+          </h2>
+          <Link to="/view">
+            <a href="#" className="capitalize text-appRed flex items-center">
+              view all
+              <svg className="w-5 h-5 ml-2" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"
+                />
+              </svg>
+            </a>
+          </Link>
+        </div>
+        <Carousel
+          arrows={false}
+          customButtonGroup={<ButtonGroup />}
+          partialVisible={true}
+          responsive={responsive}
+          itemClass="px-2"
+          className="mt-8"
+        >
+          {tracks}
+        </Carousel>
+      </div>
+      <div className="mt-6 mb-6 pt-4 border-b border-gray-400 border-opacity-20" />
+      <h2 className="text-xl capitalize font-medium text-bordyColor dark:text-gray-100">
+        Something something
+      </h2>
+      <div className="flex justify-between mt-16">
+        <div className="w-full">
+          <img src={artis} className="w-96 h-80 rounded" alt="img" />
+          <div className="flex">
+            <p className="text-xl">Kissed by the sun</p>
+            <span className="text-sm mt-2 ml-28">-2ETH/$3000</span>
+          </div>
+          <p className="text-base">Dorgu</p>
+        </div>
+        <div className="w-full">
+          <img src={artis} className="w-96 h-80 rounded" alt="img" />
+          <div className="flex">
+            <p className="text-xl">Kissed by the sun</p>
+            <span className="text-sm mt-2 ml-28">-2ETH/$3000</span>
+          </div>
+          <p className="text-base">Dorgu</p>
+        </div>
+        <div className="w-full">
+          <img src={artis} className="w-96 h-80 rounded" alt="img" />
+          <div className="flex">
+            <p className="text-xl">Kissed by the sun</p>
+            <span className="text-sm mt-2 ml-28">-2ETH/$3000</span>
+          </div>
+          <p className="text-base">Dorgu</p>
+        </div>
+      </div>
     </div>
   );
 }

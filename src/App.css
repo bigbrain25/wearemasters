@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap");
+body {
+  font-family: "Manrope", sans-serif !important;
+}
+
+div[aria-label="Countdown timer"] {
+  width: 100% !important;
+  height: 120px !important;
+}
+div[aria-label="Countdown timer"] svg {
+  display: none;
+}
+div[aria-label="Countdown timer"] .time-wrapper {
+  font-size: 12px;
+  text-align: center;
+  text-transform: capitalize;
+}
+div[aria-label="Countdown timer"] .time-wrapper .time {
+  font-size: 24px;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+/* Toggle B */
+#toggleB:checked ~ .dot {
+  transform: translateX(100%);
+  background-color: #48bb78;
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.select-wrapper::after {
+  content: "‹";
+  font-size: 2rem;
+  top: -8px;
+  transform: rotate(-90deg);
+  right: 10px;
+  color: gray;
+  position: absolute;
+}
+.select-wrapper.country::after {
+  top: 9px;
+  right: 15px;
+}
+
+.form-error {
+  color: #dc3545;
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: -10px;
+}
+
+.swal-title {
+  text-align: center;
+}
+
+.swal-text {
+  text-align: center;
+  padding: 5px 25px;
+}
+
+.image-preview {
+  height: 200px;
+  display: block;
+  margin: 5px auto 15px auto;
+  border: 2px solid grey;
+}
+
+.upload-image {
+  padding: 25px 10px;
+  width: 100%;
+  background-color: #e8e8e8;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid grey;
+}
+
+.center-image {
+  display: block;
+  margin: 5px auto;
+}
+
+select:focus,
+.form-select:focus,
+.form-control:focus,
+input.form-control:focus,
+textarea.form-control:focus {
+  box-shadow: none;
+  transition: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -moz-transition: none;
+  -webkit-transition: none;
+}

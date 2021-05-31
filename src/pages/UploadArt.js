@@ -141,7 +141,6 @@ class UploadArt extends Component {
             crossorigin="anonymous"
           />
         </Helmet>
-
         <div className="container mt-20 mb-100">
           <div className="row no-gutter">
             <div className="col-md-12 mt-4">
@@ -167,7 +166,7 @@ class UploadArt extends Component {
                 <div className="mb-4">
                   <label for="title" className="form-label">
                     <strong>
-                      Title of Digital Art (e.g Kaleidoscope Woman by IPneuma)
+                      Title of Digital Art (e.g Kaleidoscope Woman)
                     </strong>
                   </label>
                   <input

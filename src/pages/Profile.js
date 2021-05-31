@@ -5,9 +5,53 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { Link } from "react-router-dom";
 import artist from "../assets/img/artis.gif";
 import Footer from "../components/Footer";
-import SideBar from "../components/SideBar";
+import NewSideBar from "../components/NewSideBar";
 
 function Profile() {
+  const minuteSeconds = 60;
+  const hourSeconds = 3600;
+  const daySeconds = 86400;
+
+  const timerProps = {
+    isPlaying: true,
+    size: 120,
+    strokeWidth: 6,
+  };
+
+  const renderTime = (dimension, time) => {
+    return (
+      <div className="time-wrapper">
+        <div className="time">{time}</div>
+        <div>{dimension}</div>
+      </div>
+    );
+  };
+
+  const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
+  const endTime = stratTime + 1043248; // use UNIX timestamp in seconds
+
+  const remainingTime = endTime - stratTime;
+  const days = Math.ceil(remainingTime / daySeconds);
+  const daysDuration = days * daySeconds;
+
+  const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
+  const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
+  const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
+  const getTimeDays = (time) => (time / daySeconds) | 0;
+
+  const UrgeWithPleasureComponent = () => (
+    <CountdownCircleTimer
+      isPlaying
+      duration={10}
+      colors={[
+        ["#004777", 0.33],
+        ["#F7B801", 0.33],
+        ["#A30000", 0.33],
+      ]}
+    >
+      {({ remainingTime }) => remainingTime}
+    </CountdownCircleTimer>
+  );
   const collection = [
     {
       img: "https://lh3.googleusercontent.com/9nTeFgvJAxS5I2es5KkxnjuP7dwbt0wWyR4V34LlaUPOQnBHK-omJbSw3lUeWvRhki7AJocyzYspSneOuXqqQdauxF_4-dyLwwz5=s0",
@@ -80,7 +124,6 @@ function Profile() {
     } = rest;
     return (
       <div className="carousel-button-group absolute top-0 right-0 left-0 text-center">
-        {" "}
         <button
           onClick={() => goToSlide(0)}
           className={
@@ -108,19 +151,13 @@ function Profile() {
   };
   return (
     <div>
-      <SideBar />
-      <div className="lg:ml-72 relative pb-24">
-        <div className="flex justify-end py-6 px-8">
-          <Link
-            to="/login"
-            className="uppercase py-2 px-6 text-sm font-medium   rounded-full text-white bg-appRed"
-          >
-            sign in
-          </Link>
-        </div>
-        <div className="max-w-7xl mx-auto text-bordyColor dark:text-gray-100 py-16 relative lg:px-8 px-4">
-          <div className="grid grid-cols-12 gap-4">
-            <div className="col-span-12 sm:col-span-8 lg:col-span-5">
+      <div className="py-1 bg-black w-full h-10 fixed z-30 bg-opacity-90">
+      <NewSideBar />
+      </div>
+      <div className="pb-24 pt-12">
+        <div className="max-w-7xl mx-auto text-bordyColor dark:text-gray-100 py-1 relative lg:px-16 px-4 mb-16">
+          <div className="grid grid-cols-12 gap-4 -mb-60">
+            <div className="col-span-12 sm:col-span-4 lg:col-span-5">
               <div className="w-24 h-24">
                 <img src={artist} className="mx-auto rounded-full" />
               </div>
@@ -146,7 +183,6 @@ function Profile() {
               <h2 className="text-xl font-semibold uppercase mt-4">
                 product name
               </h2>
-              <p className="uppercase">$3000</p>
               <div className="my-4">
                 <p>
                   The `night sky` depicts a time of reflection and how all our
@@ -157,17 +193,19 @@ function Profile() {
                   #misang #mrmisang #psychedelic #scifi #SF #surreal
                 </p>
               </div>
-              <div>
-                <button className="py-2 px-10 uppercase rounded-full bg-appRed text-white mt-8">
-                  bid now
+              <div className="flex">
+                <button className="py-2 px-10 font-black uppercase rounded bg-appRed text-white mt-8">
+                  Bid now
                 </button>
+                <p className="mt-8 ml-8 py-2">- 2ETH/$3000</p>
               </div>
             </div>
             <div className="col-span-12 lg:col-span-7">
-              <img src="https://lh3.googleusercontent.com/9nTeFgvJAxS5I2es5KkxnjuP7dwbt0wWyR4V34LlaUPOQnBHK-omJbSw3lUeWvRhki7AJocyzYspSneOuXqqQdauxF_4-dyLwwz5=s0" />
+              <img src="https://lh3.googleusercontent.com/9nTeFgvJAxS5I2es5KkxnjuP7dwbt0wWyR4V34LlaUPOQnBHK-omJbSw3lUeWvRhki7AJocyzYspSneOuXqqQdauxF_4-dyLwwz5=s0" className="h-3/4 w-3/4"/>
             </div>
           </div>
-          <div className="grid grid-cols-12 mt-12">
+          <div className="pb-10 pt-40 border-b border-gray-400 border-opacity-20" />
+          <div className="grid grid-cols-12 mt-8">
             <div className="col-span-12 relative">
               <Carousel
                 renderButtonGroupOutside={true}
@@ -193,25 +231,26 @@ function Profile() {
             </div>
           </div>
         </div>
-        <div className="fixed bottom-0 left-0 w-full  z-50">
-          <div className="items-center  bg-appRed py-4 px-4 sm:flex space-y-4 sm:space-y-0 justify-between text-gray-100">
-            <div className="space-y-1">
-              <h2 className="text-xl sm:text-2xl font-semibold">
-                We are building a community of 1000+ Digital Artists
-              </h2>
-              <p className="text-sm">
-                Collect the rarest digital artworks from Africa and around the
-                world.
-              </p>
-            </div>
-            <div>
-              <button className="bg-gray-100 font-medium px-12 capitalize py-2 text-gray-600 focus:outline-none rounded-full">
-                try it now
-              </button>
-            </div>
+        <div className="box fixed bottom-0 left-0 w-full z-50">
+        <div className="items-center h-16 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 ... py-4 px-4 sm:flex space-y-4 sm:space-y-0 text-gray-100">
+            <button className="mb-8">x</button>
+            <div className="border-l h-14 border-white-600 border-opacity-90 mt-4 ml-16"/>
+          <div className="space-y-1 ml-6">
+            <h2 className="text-base sm:text-xl font-semibold">
+              We are building a community of 1000+ Digital Artists
+            </h2>
+          </div>
+          <div className="ml-auto">
+            <Link
+              to="/sign-up"
+              className="bg-gray-100 font-medium px-12 capitalize py-2 text-gray-600 flex focus:outline-none rounded"
+            >
+              Try it Now
+            </Link>
           </div>
         </div>
-        <Footer />
+      </div>
+      <Footer />
       </div>
     </div>
   );

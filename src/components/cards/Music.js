@@ -6,7 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 function Music(props) {
-  const { title, artist, thumbnail, eth, pricing } = props.card;
+  const { title, artist, thumbnail, eth, pricing, price } = props.card;
   return (
     <div className="cursor-pointer">
       <div className="relative flex h-track">
@@ -23,17 +23,16 @@ function Music(props) {
             {({ open }) => (
               <>
                 <div>
-                  <Menu.Button className="text-gray-100 w-8 h-8 rounded-full bg-appRed flex items-center justify-center flex-shrink-0 hover:appRed duration-300 focus:outline-none">
-                    <span className="sr-only">Open options</span>
+                  <Menu.Button className="text-gray-100 w-6 h-6 rounded-full bg-grey-400 flex items-center justify-center flex-shrink-0 hover:appRed duration-300 focus:outline-none">
                     <svg
-                      className="w-6 h-6"
-                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
                       fill="currentColor"
+                      class="bi bi-three-dots"
+                      viewBox="0 0 16 16"
                     >
-                      <path
-                        fill="currentColor"
-                        d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z"
-                      />
+                      <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                     </svg>
                   </Menu.Button>
                 </div>
@@ -50,7 +49,7 @@ function Music(props) {
                 >
                   <Menu.Items
                     static
-                    className="origin-top-right absolute z-50 right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    className="origin-top-right absolute z-50 right-0 mt-2 w-44 rounded-md shadow-lg bg-white bg-opacity-60 ring-1 ring-black ring-opacity-5 focus:outline-none"
                   >
                     <div className="py-1">
                       <Menu.Item>
@@ -60,11 +59,11 @@ function Music(props) {
                             className={classNames(
                               active
                                 ? "bg-gray-100 text-gray-900"
-                                : "text-gray-700",
+                                : "text-black font-black",
                               "block px-4 py-2 text-sm"
                             )}
                           >
-                            Account settings
+                            Share To Twitter
                           </a>
                         )}
                       </Menu.Item>
@@ -75,11 +74,11 @@ function Music(props) {
                             className={classNames(
                               active
                                 ? "bg-gray-100 text-gray-900"
-                                : "text-gray-700",
+                                : "text-black font-black",
                               "block px-4 py-2 text-sm"
                             )}
                           >
-                            Support
+                            Share To Instagram
                           </a>
                         )}
                       </Menu.Item>
@@ -90,30 +89,15 @@ function Music(props) {
                             className={classNames(
                               active
                                 ? "bg-gray-100 text-gray-900"
-                                : "text-gray-700",
+                                : "text-black font-black",
                               "block px-4 py-2 text-sm"
                             )}
                           >
-                            License
+                            Share To Facebook
                           </a>
                         )}
                       </Menu.Item>
                       <form method="POST" action="#">
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              type="submit"
-                              className={classNames(
-                                active
-                                  ? "bg-gray-100 text-gray-900"
-                                  : "text-gray-700",
-                                "block w-full text-left px-4 py-2 text-sm"
-                              )}
-                            >
-                              Sign out
-                            </button>
-                          )}
-                        </Menu.Item>
                       </form>
                     </div>
                   </Menu.Items>
@@ -134,10 +118,13 @@ function Music(props) {
       <div className="flex justify-between flex-wrap text-bordyColor dark:text-gray-100">
         <a href="#" className="flex flex-col capitalize text-sm my-2">
           <p>{title}</p>
-          <p>{artist}</p>
+          <div className="flex justify-between">
+            <p>{artist}</p>
+            <p className="ml-24">{price}</p>
+          </div>
         </a>
         <div className="text-xs my-2 uppercase">
-          <p>{eth}</p>
+          <p className="">{eth}</p>
           <p>{pricing}</p>
         </div>
       </div>

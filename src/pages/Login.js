@@ -2,8 +2,6 @@
 import React, { Component } from "react";
 import ModalVideo from "react-modal-video";
 import { Link, withRouter } from "react-router-dom";
-// import fb from "../assets/icons/fb.png";
-// import google from "../assets/icons/google.png";
 import login from "../assets/img/signup.jpg";
 import logo from "../assets/img/logo-white.svg";
 

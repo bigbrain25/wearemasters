@@ -4,25 +4,20 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Avatar from "react-avatar";
-import { Helmet } from "react-helmet";
 import {
   logoutUser,
   activateAccount,
   resendActivationToken,
 } from "../actions/authActions";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import { getCurrentProfile } from "../actions/profileActions";
 import { getAssets, getETHRate } from "../actions/assetActions";
 import { compose } from "redux";
 import { withStyles } from "@material-ui/core";
-import Backdrop from "@material-ui/core/Backdrop";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import { Spinner } from "@chevtek/react-spinners";
 import Carousel from "react-multi-carousel";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import classnames from "classnames";
 import Footer from "../components/Footer";
-import SideBar from "../components/SideBar";
-import logo from "../assets/img/favicon.png";
 import swal from "@sweetalert/with-react";
 
 const styles = (theme) => ({
@@ -35,6 +30,50 @@ const styles = (theme) => ({
   },
 });
 
+const minuteSeconds = 60;
+const hourSeconds = 3600;
+const daySeconds = 86400;
+
+const timerProps = {
+  isPlaying: true,
+  size: 120,
+  strokeWidth: 6,
+};
+
+const renderTime = (dimension, time) => {
+  return (
+    <div className="time-wrapper">
+      <div className="time">{time}</div>
+      <div>{dimension}</div>
+    </div>
+  );
+};
+
+const stratTime = Date.now() / 1000; // use UNIX timestamp in seconds
+const endTime = stratTime + 1043248; // use UNIX timestamp in seconds
+
+const remainingTime = endTime - stratTime;
+const days = Math.ceil(remainingTime / daySeconds);
+const daysDuration = days * daySeconds;
+
+const getTimeSeconds = (time) => (minuteSeconds - time) | 0;
+const getTimeMinutes = (time) => ((time % hourSeconds) / minuteSeconds) | 0;
+const getTimeHours = (time) => ((time % daySeconds) / hourSeconds) | 0;
+const getTimeDays = (time) => (time / daySeconds) | 0;
+
+const UrgeWithPleasureComponent = () => (
+  <CountdownCircleTimer
+    isPlaying
+    duration={10}
+    colors={[
+      ["#004777", 0.33],
+      ["#F7B801", 0.33],
+      ["#A30000", 0.33],
+    ]}
+  >
+    {({ remainingTime }) => remainingTime}
+  </CountdownCircleTimer>
+);
 class Account extends Component {
   constructor() {
     super();
@@ -189,8 +228,7 @@ class Account extends Component {
                 : "px-2 sm:px-8 duration-100 ease-in-out py-2 mx-2 text-lg uppercase focus:outline-none"
             }
           >
-            {" "}
-            series{" "}
+            series
           </button>
         </div>
       );
@@ -199,19 +237,29 @@ class Account extends Component {
       //<div>
       //   {user.isVerified === true ? (
       <div>
-        <SideBar />
-        <div className="lg:ml-72 relative pb-24">
-          <div className="flex justify-end py-6 px-8">
-            <Link
-              to="/login"
-              onClick={this.onLogoutClick.bind(this)}
-              className="uppercase py-2 px-6 text-sm font-medium   rounded-full text-white bg-appRed"
-            >
-              log out
-            </Link>
-          </div>
-          <div className="max-w-7xl mx-auto text-bordyColor dark:text-gray-100 py-16 relative lg:px-8 px-4">
-            <div className="grid grid-cols-12 gap-4">
+        <Link to="/">
+          <a
+            className="py-2 bg-gray-700 w-full h-10 fixed z-50 bg-opacity-90"
+            alt="#"
+            href="#"
+          >
+            <div className="bg-gray-400 ml-3 bg-gray-600 w-6 h-6 rounded">
+              <NavigateBeforeIcon style={{ color: "#fff" }} />
+            </div>
+            <div className="flex justify-end pr-4 relative -top-6">
+              <Link
+                to="/login"
+                onClick={this.onLogoutClick.bind(this)}
+                className="uppercase py-1 px-4 text-xs font-medium rounded text-white bg-appRed"
+              >
+                log out
+              </Link>
+            </div>
+          </a>
+        </Link>
+        <div className="relative">
+          <div className="max-w-7xl mx-auto text-bordyColor dark:text-gray-100 py-16 relative lg:px-8 px-10">
+            <div className="grid grid-cols-12 gap-4 ml-20">
               <div className="col-span-12 sm:col-span-8 lg:col-span-5">
                 <div className="w-24 h-24">
                   <Avatar
@@ -240,20 +288,102 @@ class Account extends Component {
                   >
                     @{user.username}
                   </button>
+                  <div className="flex mt-4">
+                    <p className="text-xl font-black">ETH Address :</p>
+                    <p className="ml-2 text-xs mt-1 pt-1">3khbfjvnjnkcjk........</p>
+                  </div>
+
+                  <p className="mt-2">
+                    British in 1960. Our living rooms or parlors have become the
+                    arena citizens of our nascent nation have sat to watch the
+                    deconstruction of the dream our founding fathers had. We’ve
+                    seen
+                  </p>
                 </div>
-                <div className="mt-8 mb-12">
+                <div className="mt-8 mb-6">
                   <Link
                     to="/update-profile"
-                    className="bg-gray-100  rounded-sm py-2 px-4 text-sm font-medium text-gray-600 mr-2"
+                    className="bg-gray-100 rounded-sm py-2 px-4 text-sm font-medium text-gray-600 mr-2"
                   >
                     Edit Profile
                   </Link>
                   <Link
                     to="/upload-art"
-                    className="bg-gray-100  rounded-sm py-2 px-4 text-sm font-medium text-gray-600 mr-2"
+                    className="bg-gray-100 rounded-sm py-2 px-4 text-sm font-medium text-gray-600 mr-2"
                   >
                     Upload Art
                   </Link>
+                  <div className="mt-6">
+                    <Link
+                      to="/next"
+                      className="bg-gray-100 w-full rounded-sm py-2 ml-1 px-12 text-sm font-medium text-gray-600"
+                    >
+                      Next Drop Timer
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              <div className="border bg-gray-400 h-full w-96 font-black text-7xl pt-10 text-center ml-36">
+                When Is Your Next Drop?
+                <div className="relative top-28 flex w-full">
+                  <CountdownCircleTimer
+                    {...timerProps}
+                    colors={[["#f8f8ff"]]}
+                    duration={daysDuration}
+                    initialRemainingTime={remainingTime}
+                  >
+                    {({ elapsedTime }) =>
+                      renderTime(
+                        "days",
+                        getTimeDays(daysDuration - elapsedTime)
+                      )
+                    }
+                  </CountdownCircleTimer>
+                  <CountdownCircleTimer
+                    {...timerProps}
+                    colors={[["#f8f8ff"]]}
+                    duration={daySeconds}
+                    initialRemainingTime={remainingTime % daySeconds}
+                    onComplete={(totalElapsedTime) => [
+                      remainingTime - totalElapsedTime > hourSeconds,
+                    ]}
+                  >
+                    {({ elapsedTime }) =>
+                      renderTime(
+                        "hours",
+                        getTimeHours(daySeconds - elapsedTime)
+                      )
+                    }
+                  </CountdownCircleTimer>
+                  <CountdownCircleTimer
+                    {...timerProps}
+                    colors={[["#f8f8ff"]]}
+                    duration={hourSeconds}
+                    initialRemainingTime={remainingTime % hourSeconds}
+                    onComplete={(totalElapsedTime) => [
+                      remainingTime - totalElapsedTime > minuteSeconds,
+                    ]}
+                  >
+                    {({ elapsedTime }) =>
+                      renderTime(
+                        "minutes",
+                        getTimeMinutes(hourSeconds - elapsedTime)
+                      )
+                    }
+                  </CountdownCircleTimer>
+                  <CountdownCircleTimer
+                    {...timerProps}
+                    colors={[["#f8f8ff"]]}
+                    duration={minuteSeconds}
+                    initialRemainingTime={remainingTime % minuteSeconds}
+                    onComplete={(totalElapsedTime) => [
+                      remainingTime - totalElapsedTime > 0,
+                    ]}
+                  >
+                    {({ elapsedTime }) =>
+                      renderTime("seconds", getTimeSeconds(elapsedTime))
+                    }
+                  </CountdownCircleTimer>
                 </div>
               </div>
             </div>

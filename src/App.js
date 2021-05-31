@@ -19,6 +19,13 @@ import setAuthToken from "./utils/setAuthToken";
 
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { clearCurrentProfile } from "./actions/profileActions";
+import NewSideBar from "./components/NewSideBar";
+import NewUploadArt from "./pages/NewUploadArt";
+import ViewAll from "./pages/ViewAll";
+import Onhover from "./pages/Onhover";
+import NewUpdateProfile from "./pages/NewUpdateProfile";
+import Collectible from "./pages/Collectible";
+import NextDrop from "./pages/NextDrop";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -50,6 +57,13 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/side" component={NewSideBar} />
+            <Route exact path="/up" component={NewUploadArt} />
+            <Route exact path="/upp" component={NewUpdateProfile} />
+            <Route exact path="/collectible" component={Collectible} />
+            <Route exact path="/next" component={NextDrop} />
+            <Route exact path="/view" component={ViewAll} />
+            <Route exact path="/hover" component={Onhover} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/sign-up" component={Signup} />
             <Route exact path="/profile" component={Profile} />

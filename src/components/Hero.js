@@ -35,7 +35,7 @@ function Hero(props) {
           <div className="flex space-x-8 items-center">
             <a
               href="#"
-              className="text-base xl:text-lg uppercase whitespace-nowrap font-medium py-3 xl:py-4 px-6 xl:px-12 rounded-full text-gray-100 bg-appRed"
+              className="text-base xl:text-lg uppercase whitespace-nowrap font-black py-3 xl:py-4 px-6 xl:px-12 rounded text-gray-100 bg-appRed"
             >
               BID NOW
             </a>
